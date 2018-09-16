@@ -1,0 +1,60 @@
+.app-header{
+	@include d-flex($align-items: center, $justify-content: space-between);
+	padding: 15px var(--side-indent, 53px);
+	color: var(--white, #fff);
+	background-color: var(--primary, #3498db);
+	box-shadow: 0 0 30px 5px rgba(52,152,219, 0.4);
+
+	.left-block{
+		.toggle-button{
+			cursor: pointer;
+			transition: 0.2s;
+			&:hover{
+				.toggle-button-element{
+					background-color: var(--dark, #16315c);
+				}
+			}
+			&-element{
+				display: block;
+				width: 25px;
+				height: 3px;
+				background-color: var(--white);				
+
+				&:nth-of-type(2){
+					width: 18px;
+					margin-top: 5px;
+					margin-bottom: 5px;
+				}
+			}	
+		}	
+	}
+
+	.right-block{
+		@include d-flex($align-items: center, $justify-content: space-between);
+
+		.search{
+			font-size: 20px;
+			margin-right: 25px;
+			cursor: pointer;
+			transition: 0.2s;
+			&:hover{
+				color: var(--dark, #16315c);
+			}
+		}
+
+		.acc-info{
+			@include d-flex($align-items: center);
+
+			.acc-status{
+				/*line-height: 30px;*/
+				letter-spacing: 0.1em;
+				color: var(--gray-300, #2775a9);
+				@include d-flex($align-items: center, $justify-content: space-between);
+			}
+		}
+	}
+
+	.avatar{
+		margin-right: 25px;
+	}
+}

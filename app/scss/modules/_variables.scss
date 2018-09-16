@@ -1,0 +1,26 @@
+:root{
+	/*Colors*/
+	--primary: #3498db;
+	--white: #fff;
+	--app-back: #f5f6f8;
+	--dark: #16315c;
+	--gray-90: #c9d6df;
+	--gray-100: #f6fafe;
+	--gray-200: #8ea1b4;
+	--gray-300: #2775a9;
+	--gray-400: #d6e3ec;
+	--gray-500: #ecf0f2;
+	--blue: #3598db;
+	--green: #51dacf;
+	--approx-cello: #34495e;
+
+	/*Indents*/
+	--side-indent: 15px;
+}
+
+@media (min-width: 576px){
+	:root{
+		/*Indents*/
+		--side-indent: 53px;
+	}	
+}
