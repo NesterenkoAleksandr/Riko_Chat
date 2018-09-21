@@ -2364,7 +2364,7 @@ table {
   overflow: visible;
   clip: auto; }
 
-:root {
+body {
   /*Colors*/
   --primary: #3498db;
   --white: #fff;
@@ -2380,13 +2380,19 @@ table {
   --blue: #3598db;
   --green: #51dacf;
   --approx-cello: #34495e;
+  --bahama-blue: #cfdae2;
   /*Indents*/
   --side-indent: 15px; }
 
 @media (min-width: 576px) {
-  :root {
+  body {
     /*Indents*/
     --side-indent: 53px; } }
+
+body.night-mode {
+  --app-back: #1f2738;
+  --primary: #99c2de;
+  --dark: #99c2de; }
 
 /*Flex-box mixin*/
 /*Typography*/
@@ -2506,6 +2512,17 @@ h4 {
         width: 18px;
         margin-top: 5px;
         margin-bottom: 5px; }
+    .app-header .left-block .toggle-button.toggle-active .toggle-button-element:nth-of-type(1) {
+      -webkit-transform: translateY(8px) rotate(45deg);
+      transform: translateY(8px) rotate(45deg); }
+    .app-header .left-block .toggle-button.toggle-active .toggle-button-element:nth-of-type(2) {
+      opacity: 0; }
+    .app-header .left-block .toggle-button.toggle-active .toggle-button-element:nth-of-type(3) {
+      -webkit-transform: translateY(-8px) rotate(-45deg);
+      transform: translateY(-8px) rotate(-45deg); }
+    @media (min-width: 768px) {
+      .app-header .left-block .toggle-button {
+        display: none; } }
   .app-header .right-block {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2532,7 +2549,6 @@ h4 {
       -ms-flex-align: center;
       align-items: center; }
       .app-header .right-block .acc-info .acc-status {
-        /*line-height: 30px;*/
         letter-spacing: 0.1em;
         color: var(--gray-300, #2775a9);
         display: -webkit-box;
@@ -2543,7 +2559,78 @@ h4 {
         justify-content: space-between;
         -webkit-box-align: center;
         -ms-flex-align: center;
-        align-items: center; }
+        align-items: center;
+        cursor: pointer;
+        -webkit-transition: 0.2s;
+        transition: 0.2s; }
+        .app-header .right-block .acc-info .acc-status:before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          right: 50%;
+          width: 0;
+          background-color: var(--gray-100, #f6fafe);
+          -webkit-transition: 0.3s;
+          transition: 0.3s;
+          height: 1px;
+          bottom: -7px; }
+        .app-header .right-block .acc-info .acc-status:hover {
+          color: var(--gray-100, #f6fafe); }
+        .app-header .right-block .acc-info .acc-status:hover:before {
+          left: 0;
+          right: 0;
+          width: 100%; }
+      .app-header .right-block .acc-info .acc-text {
+        position: relative; }
+        .app-header .right-block .acc-info .acc-text .acc-menu {
+          padding: 10px;
+          background-color: var(--white, #fff);
+          position: absolute;
+          top: calc(100% + 5px);
+          left: 50%;
+          border-radius: 4px;
+          color: var(--dark, #16315c);
+          -webkit-transition: 0.2s;
+          transition: 0.2s;
+          opacity: 0;
+          visibility: hidden;
+          -webkit-transform: translate(-50%, 5px);
+          transform: translate(-50%, 5px); }
+          .app-header .right-block .acc-info .acc-text .acc-menu li {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            white-space: nowrap; }
+          .app-header .right-block .acc-info .acc-text .acc-menu.acc-menu-open {
+            opacity: 1;
+            visibility: visible;
+            -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0); }
+          .app-header .right-block .acc-info .acc-text .acc-menu .toggle-box {
+            margin-left: 15px;
+            min-width: 35px;
+            height: 20px;
+            position: relative;
+            border-radius: 20px;
+            background-color: #ccc;
+            padding: 2px;
+            cursor: pointer; }
+            .app-header .right-block .acc-info .acc-text .acc-menu .toggle-box .toggle-circle {
+              display: inline-block;
+              width: 50%;
+              height: 100%;
+              border-radius: 50%;
+              background-color: #fff;
+              position: relative;
+              -webkit-transition: 0.2s;
+              transition: 0.2s; }
+            .app-header .right-block .acc-info .acc-text .acc-menu .toggle-box.toggle-active {
+              background-color: var(--green, #51dacf); }
+              .app-header .right-block .acc-info .acc-text .acc-menu .toggle-box.toggle-active .toggle-circle {
+                left: 50%; }
   .app-header .avatar {
     margin-right: 25px; }
 
@@ -2561,12 +2648,10 @@ h4 {
   top: 75px;
   bottom: 0;
   left: 0;
-  padding-top: 12px;
   background-color: var(--white, #ffffff);
   border-radius: 2px;
   -webkit-box-shadow: 0 0 25px 0 rgba(52, 152, 219, 0.1);
   box-shadow: 0 0 25px 0 rgba(52, 152, 219, 0.1);
-  /*flex-basis: 36%;*/
   width: 100%;
   -webkit-transition: 0.2s;
   transition: 0.2s;
@@ -2628,10 +2713,13 @@ h4 {
     align-items: center;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding: 15px 0;
+    padding: 5px 0;
     margin: -10px; }
+    @media (min-width: 768px) {
+      .chat-header {
+        padding: 15px 0; } }
     .chat-header > * {
-      padding: 10px; }
+      padding: 14px; }
   .chat .acc-name {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2647,7 +2735,7 @@ h4 {
     -webkit-box-shadow: 0 2px 4px 2px #51dacf;
     box-shadow: 0 2px 4px 2px #51dacf; }
   .chat-settings .icon {
-    font-size: 16px;
+    font-size: 22px;
     color: var(--gray-90, #c9d6df);
     -webkit-transition: 0.2s;
     transition: 0.2s;
@@ -2724,21 +2812,34 @@ h4 {
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
       border-radius: 4px;
-      padding: 20px 86px 20px 26px;
+      padding: 22px 90px 22px 26px;
       width: 100%;
-      border: none; }
+      border: none;
+      -webkit-box-shadow: 0 0 25px 0 rgba(53, 152, 219, 0.05);
+      box-shadow: 0 0 25px 0 rgba(53, 152, 219, 0.05);
+      color: var(--gray-200, #8ea1b4); }
+      .chat-footer .input-message::-webkit-input-placeholder {
+        color: var(--gray-200, #8ea1b4); }
+      .chat-footer .input-message:-ms-input-placeholder {
+        color: var(--gray-200, #8ea1b4); }
+      .chat-footer .input-message::-ms-input-placeholder {
+        color: var(--gray-200, #8ea1b4); }
+      .chat-footer .input-message::placeholder {
+        color: var(--gray-200, #8ea1b4); }
     .chat-footer .input-label {
       position: absolute;
-      font-size: 20px;
+      font-size: 22px;
       cursor: pointer;
-      color: var(--dark, #16315c);
+      color: var(--bahama-blue, #cfdae2);
       top: 50%;
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
-      right: 60px; }
+      right: 70px; }
+      .chat-footer .input-label:hover {
+        color: var(--dark, #16315c); }
       .chat-footer .input-label span {
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg); }
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg); }
     .chat-footer .form-button {
       position: absolute;
       border-radius: 50%;
@@ -2755,7 +2856,9 @@ h4 {
       line-height: 40px;
       cursor: pointer;
       padding: 0;
-      border-color: transparent; }
+      border-color: transparent;
+      -webkit-box-shadow: 0 0 15px 3px rgba(53, 152, 219, 0.3);
+      box-shadow: 0 0 15px 3px rgba(53, 152, 219, 0.3); }
       .chat-footer .form-button .fa {
         line-height: 20px;
         -webkit-transform: translateY(-20%) rotate(45deg);

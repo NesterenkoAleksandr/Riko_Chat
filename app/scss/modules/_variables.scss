@@ -1,4 +1,4 @@
-:root{
+body{
 	/*Colors*/
 	--primary: #3498db;
 	--white: #fff;
@@ -14,14 +14,21 @@
 	--blue: #3598db;
 	--green: #51dacf;
 	--approx-cello: #34495e;
+	--bahama-blue: #cfdae2;
 
 	/*Indents*/
 	--side-indent: 15px;
 }
 
 @media (min-width: 576px){
-	:root{
+	body{
 		/*Indents*/
 		--side-indent: 53px;
 	}	
+}
+
+body.night-mode{
+	--app-back: #1f2738;
+	--primary: #99c2de;
+	--dark: #99c2de;
 }

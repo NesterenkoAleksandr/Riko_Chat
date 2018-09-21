@@ -25,7 +25,23 @@
 					margin-top: 5px;
 					margin-bottom: 5px;
 				}
-			}	
+			}
+
+			&.toggle-active{
+				.toggle-button-element:nth-of-type(1){
+					transform: translateY(8px) rotate(45deg);
+				}
+				.toggle-button-element:nth-of-type(2){
+					opacity: 0;
+				}
+				.toggle-button-element:nth-of-type(3){
+					transform: translateY(-8px) rotate(-45deg);
+				}
+			}
+
+			@media (min-width: 768px){
+				display: none;
+			}
 		}	
 	}
 
@@ -46,12 +62,92 @@
 			@include d-flex($align-items: center);
 
 			.acc-status{
-				/*line-height: 30px;*/
 				letter-spacing: 0.1em;
 				color: var(--gray-300, #2775a9);
 				@include d-flex($align-items: center, $justify-content: space-between);
+				cursor: pointer;
+				transition: 0.2s;
+
+				&:before{
+					content: '';
+					position: absolute;
+					left: 50%;
+					right: 50%;
+					width: 0;
+					background-color: var(--gray-100, #f6fafe);
+					transition: 0.3s;
+					height: 1px;
+					bottom: -7px;
+				}
+
+				&:hover{
+					color: var(--gray-100, #f6fafe);
+				}
+
+				&:hover:before{					
+					left: 0;
+					right: 0;
+					width: 100%;
+				}
 			}
-		}
+
+			.acc-text{
+				position: relative;
+
+				.acc-menu{
+					padding: 10px;
+					background-color: var(--white, #fff);
+					position: absolute;
+					top: calc(100% + 5px);
+					left: 50%;
+					border-radius: 4px;
+					color: var(--dark, #16315c);
+					transition: 0.2s;
+					opacity: 0;
+					visibility: hidden;
+					transform: translate(-50%, 5px);
+
+					li{
+						@include d-flex($align-items: center);
+						white-space: nowrap;
+					}
+
+					&.acc-menu-open{
+						opacity: 1;
+						visibility: visible;
+						transform: translate(-50%, 0);
+					}
+
+					.toggle-box{
+						margin-left: 15px;
+						min-width: 35px;
+						height: 20px;
+						position: relative;
+						border-radius: 20px;
+						background-color: #ccc;
+						padding: 2px;
+						cursor: pointer;
+
+						.toggle-circle{
+							display: inline-block;
+							width: 50%;
+							height: 100%;
+							border-radius: 50%;
+							background-color: #fff;
+							position: relative;
+							transition: 0.2s;
+						}
+
+						&.toggle-active{
+							background-color: var(--green, #51dacf);
+							.toggle-circle{
+								left: 50%;
+							}
+						}
+					}
+				}
+			}
+		}		
 	}
 
 	.avatar{

@@ -8,11 +8,9 @@
 	top: 75px;
 	bottom: 0;
 	left: 0;
-	padding-top: 12px;
 	background-color: var(--white, #ffffff);
 	border-radius: 2px;
 	box-shadow: 0 0 25px 0 rgba(52,152,219, 0.1);
-	/*flex-basis: 36%;*/
 	width: 100%;
 	transition: 0.2s;
 	transform: translateX(-100%);
@@ -53,11 +51,15 @@
 
 	&-header{
 		@include d-flex($align-items: center, $justify-content: space-between, $flex-wrap: wrap);
-		padding: 15px 0;
+		padding: 5px 0;
 		margin: -10px;
 
+		@media (min-width: 768px){
+			padding: 15px 0;
+		}
+
 		> * {
-			padding: 10px;
+			padding: 14px;
 		}
 	}
 
@@ -75,7 +77,7 @@
 
 	&-settings{
 		.icon{
-			font-size: 16px;
+			font-size: 22px;
 			color: var(--gray-90, #c9d6df);
 			transition: 0.2s;
 			cursor: pointer;
@@ -165,7 +167,7 @@
 		padding-top: 10px;
 
 		.chat-form{
-			position: relative;			
+			position: relative;					
 		}
 		
 		.input-file{
@@ -176,22 +178,32 @@
 			display: block;
 			box-sizing: border-box; 
 			border-radius: 4px;
-			padding: 20px 86px 20px 26px;
+			padding: 22px 90px 22px 26px;
 			width: 100%;
 			border: none;
+			box-shadow: 0 0 25px 0 rgba(53,152,219, 0.05);
+			color: var(--gray-200, #8ea1b4);
+
+			&::placeholder {
+				color: var(--gray-200, #8ea1b4);
+			}
 		}
 
 		.input-label{
 			position: absolute;
-			font-size: 20px;
+			font-size: 22px;
 			cursor: pointer;
-			color: var(--dark, #16315c);
+			color: var(--bahama-blue, #cfdae2);
 			top: 50%;
 			transform: translateY(-50%);
-			right: 60px;
+			right: 70px;
+
+			&:hover{
+				color:var(--dark, #16315c);
+			}
 
 			span{
-				transform: rotate(45deg);
+				transform: rotate(-135deg);
 			}
 		}
 		
@@ -211,6 +223,7 @@
 			cursor: pointer;
 			padding: 0;
 			border-color: transparent;
+			box-shadow: 0 0 15px 3px rgba(53,152,219, 0.3);
 
 			.fa{
 				line-height: 20px;
