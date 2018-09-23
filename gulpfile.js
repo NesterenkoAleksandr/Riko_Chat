@@ -5,7 +5,8 @@ var gulp         = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),// Подключаем библиотеку для автоматического добавления префиксов
 	sourcemaps   = require('gulp-sourcemaps'),
 	notify       = require('gulp-notify'),
-	plumber      = require('gulp-plumber');
+	plumber      = require('gulp-plumber'),
+	pug          = require('gulp-pug');// Подключаем Pug пакет
 
 // Сообщение об ошибке
 var onError = function(error){
@@ -15,6 +16,15 @@ var onError = function(error){
 	"\r" + error.messageOriginal :
 	error;
 }
+
+gulp.task('pug', function(){
+	return gulp.src('app/pug/**/*.pug')
+	.pipe(pug({
+		pretty: true
+	}))
+	.pipe(gulp.dest('app'))
+	.pipe(browserSync.reload({stream: true}))
+})
 
 gulp.task('sass', function(){ // Создаем таск "sass"
 	return gulp.src('app/scss/**/*.scss') // Берем все scss файлы из папки sсss и дочерних, если таковые будут
@@ -49,9 +59,9 @@ gulp.task('clean', function() {
 	return del.sync('dist'); // Удаляем папку dist перед сборкой
 });
 
-gulp.task('watch', ['browser-sync', 'sass'], function() {
+gulp.task('watch', ['browser-sync', 'sass', 'pug'], function() {
 	gulp.watch('app/scss/**/*.scss', ['sass']); // Наблюдение за scss файлами
-	gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
+	gulp.watch('app/pug/**/*.pug', ['pug']); // Наблюдение за pug файлами в папке app/pug
 	gulp.watch('app/js/**/*.js', browserSync.reload); // Наблюдение за JavaScript файлами 
 	gulp.watch('app/img/**/*', browserSync.reload); // Наблюдение за файлами изображений 
 	gulp.watch('app/fonts/**/*', browserSync.reload); // Наблюдение за файлами шрифтов 

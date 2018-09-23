@@ -1,0 +1,234 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    link(href='https://fonts.googleapis.com/css?family=Lato:400,700', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='css/style.css')
+    meta(name='format-detection', content='telephone=no')
+    meta(name='viewport', content='width=device-width height=device-height user-scalable=yes')
+    title Riko Chat
+  body
+    .app-wrapper
+      .application
+        header.app-header
+          .left-block
+            .toggle-button
+              span.toggle-button-element
+              span.toggle-button-element
+              span.toggle-button-element
+          .right-block
+            .search
+              span.fa.fa-search
+            .acc-info
+              img.avatar(src='img/avatar.png', alt='acc-avatar')
+              .acc-text
+                h4.acc-name Riko Sapto Dimo
+                .acc-status
+                  p Available
+                  span.fa.fa-angle-down
+                ul.acc-menu
+                  li
+                    | Dark Theme
+                    .toggle-box
+                      .toggle-circle
+        main.app-main
+          .sidebar
+            .sidebar-header
+              h3 Chat
+              button.btn New
+            ul.users-listing
+              li.user.online.is-unread-message
+                .user-ava
+                  img.avatar(src='img/avatar-1.png', alt='user-avatar')
+                  span.count 2
+                .user-name
+                  h3.name Fikri Ruslandi
+                  span.last-message Ko, Kumaha Project anu eta
+                  span.is-typing.d-none is typing a message
+                .user-status
+                  span.status
+                  span.time 1 min
+              li.user.online.typing.open
+                .user-ava
+                  img.avatar(src='img/avatar-2.png', alt='user-avatar')
+                  span.count 3
+                .user-name
+                  h3.name Moch Ramdhani
+                  span.last-message Ane menang contes $1000
+                  span.is-typing.d-none is typing a message
+                .user-status
+                  span.status
+                  span.time 2 min
+              li.user
+                .user-ava
+                  img.avatar(src='img/avatar-3.png', alt='user-avatar')
+                  span.count 0
+                .user-name
+                  h3.name Abu Abdullah Nugraha
+                  span.last-message.d-none
+                  span.is-typing is typing a message
+                .user-status
+                  span.status
+                  span.time.d-none 1 min
+              li.user.is-unread-message
+                .user-ava
+                  img.avatar(src='img/avatar-4.png', alt='user-avatar')
+                  span.count 4
+                .user-name
+                  h3.name Muhammad Fauzi
+                  span.last-message Ko, Minjem sapatu basket ja
+                  span.is-typing.d-none is typing a message
+                .user-status
+                  span.status
+                  span.time 9 min
+              li.user
+                .user-ava
+                  img.avatar(src='img/avatar-5.png', alt='user-avatar')
+                  span.count 0
+                .user-name
+                  h3.name Nurman Tri Gumelar
+                  span.last-message Technical meeting lomba jog
+                  span.is-typing.d-none is typing a message
+                .user-status
+                  span.status
+                  span.time 9 min
+              li.user
+                .user-ava
+                  img.avatar(src='img/avatar-6.png', alt='user-avatar')
+                  span.count 0
+                .user-name
+                  h3.name Bagas Rhafi
+                  span.last-message Heeh pan si jamar nge dunk
+                  span.is-typing.d-none is typing a message
+                .user-status
+                  span.status
+                  span.time 45 min
+              li.user.is-unread-message
+                .user-ava
+                  img.avatar(src='img/avatar-7.png', alt='user-avatar')
+                  span.count 7
+                .user-name
+                  h3.name Saepul Rohman
+                  span.last-message Heeh wpap na 
+                  span.is-typing.d-none is typing a message
+                .user-status
+                  span.status
+                  span.time 2 hrs
+              li.user
+                .user-ava
+                  img.avatar(src='img/avatar-8.png', alt='user-avatar')
+                  span.count 6
+                .user-name
+                  h3.name Muhamad Aldiansyah
+                  span.last-message Bales tuh ko bisi disetrum
+                  span.is-typing.d-none is typing a message
+                .user-status
+                  span.status
+                  span.time 2 hrs
+              li.user.online
+                .user-ava
+                  img.avatar(src='img/avatar-8.png', alt='user-avatar')
+                  span.count 6
+                .user-name
+                  h3.name Muhamad Aldiansyah
+                  span.last-message Bales tuh ko bisi disetrum
+                  span.is-typing.d-none is typing a message
+                .user-status
+                  span.status
+                  span.time 2 hrs
+              li.user.is-unread-message
+                .user-ava
+                  img.avatar(src='img/avatar-8.png', alt='user-avatar')
+                  span.count 6
+                .user-name
+                  h3.name Muhamad Aldiansyah
+                  span.last-message Bales tuh ko bisi disetrum
+                  span.is-typing.d-none is typing a message
+                .user-status
+                  span.status
+                  span.time 2 hrs
+          .chat
+            .chat-header
+              h2.acc-name
+                | Abu Abdullah Nugraha 
+                span.status
+              .chat-settings
+                span.icon.fa.fa-phone
+                span.icon.fa.fa-video-camera
+                span.icon.fa.fa-ellipsis-v
+            .chat-body
+              .user-message
+                .avatar-wrapper
+                  img.avatar(src='img/avatar-1.png', alt='user-avatar')
+                p.message
+                  span.message-text Nanti  kita technical meeting lomba jogja
+              .acc-message
+                p.message
+                  span.message-text Semua satu team ITone yang berangkat ke jogja?
+                .avatar-wrapper
+                  img.avatar(src='img/avatar.png', alt='account-avatar')
+              .user-message
+                .avatar-wrapper
+                  img.avatar(src='img/avatar-1.png', alt='user-avatar')
+                p.message
+                  span.message-text
+                    | Iya,semua kita berangkat pake pesawat biar cepet dari  jakarta berangkat, terus dari sini kita naik kereta ke jakarta
+              .acc-message
+                p.message
+                  span.message-text Ok,berarti kita beberpa hari disana?
+                .avatar-wrapper
+                  img.avatar(src='img/avatar.png', alt='account-avatar')
+              .user-message
+                .avatar-wrapper
+                  img.avatar(src='img/avatar-1.png', alt='user-avatar')
+                p.message
+                  span.message-text Yaiyalah tenang kita tidur di hotel ko 
+              .acc-message
+                p.message
+                  span.message-text Sip lumayan seklian jalan jalan, semoga tim kita bisa menang 
+                .avatar-wrapper
+                  img.avatar(src='img/avatar.png', alt='account-avatar')
+              .user-message
+                .avatar-wrapper
+                  img.avatar(src='img/avatar-1.png', alt='user-avatar')
+                p.message
+                  span.message-text Yaiyalah tenang kita tidur di hotel ko
+              .acc-message
+                p.message
+                  span.message-text Sip lumayan seklian jalan jalan, semoga tim kita bisa menang 
+                .avatar-wrapper
+                  img.avatar(src='img/avatar.png', alt='account-avatar')
+              .user-message
+                .avatar-wrapper
+                  img.avatar(src='img/avatar-1.png', alt='user-avatar')
+                p.message
+                  span.message-text Yaiyalah tenang kita tidur di hotel ko
+              .acc-message
+                p.message
+                  span.message-text Sip lumayan seklian jalan jalan, semoga tim kita bisa menang 
+                .avatar-wrapper
+                  img.avatar(src='img/avatar.png', alt='account-avatar')
+              .user-message
+                .avatar-wrapper
+                  img.avatar(src='img/avatar-1.png', alt='user-avatar')
+                p.message
+                  span.message-text Yaiyalah tenang kita tidur di hotel ko
+              .acc-message
+                p.message
+                  span.message-text Sip lumayan seklian jalan jalan, semoga tim kita bisa menang 
+                .avatar-wrapper
+                  img.avatar(src='img/avatar.png', alt='account-avatar')
+              .user-message
+                .avatar-wrapper
+                  img.avatar(src='img/avatar-1.png', alt='user-avatar')
+                p.message
+                  span.message-text Yaiyalah tenang kita tidur di hotel ko
+            .chat-footer
+              form.chat-form
+                input.input-message(type='text', placeholder='Type your message...')
+                label.input-label(for='input-file')
+                  span.fa.fa-paperclip
+                input#input-file.input-file(type='file')
+                button.form-button(type='submit')
+                  span.fa.fa-paper-plane
+    script(src='js/script.js')
